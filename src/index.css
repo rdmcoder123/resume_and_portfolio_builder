@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 239 246 255;
+  --primary-foreground: 59 130 246;
+  --secondary: 240 253 250;
+  --secondary-foreground: 13 148 136;
+  --accent: 254 215 170;
+  --accent-foreground: 249 115 22;
+  --background: 255 255 255;
+  --foreground: 15 23 42;
+  --muted: 241 245 249;
+  --muted-foreground: 100 116 139;
+  --border: 226 232 240;
+  --input: 226 232 240;
+  --success: 236 253 245;
+  --success-foreground: 16 185 129;
+  --warning: 255 251 235;
+  --warning-foreground: 245 158 11;
+  --error: 254 242 242;
+  --error-foreground: 239 68 68;
+}
+
+.dark {
+  --primary: 30 64 175;
+  --primary-foreground: 219 234 254;
+  --secondary: 19 78 74;
+  --secondary-foreground: 204 251 241;
+  --accent: 124 45 18;
+  --accent-foreground: 254 215 170;
+  --background: 15 23 42;
+  --foreground: 241 245 249;
+  --muted: 30 41 59;
+  --muted-foreground: 148 163 184;
+  --border: 51 65 85;
+  --input: 51 65 85;
+  --success: 20 83 45;
+  --success-foreground: 187 247 208;
+  --warning: 120 53 15;
+  --warning-foreground: 254 240 138;
+  --error: 127 29 29;
+  --error-foreground: 254 226 226;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground;
+}
+
+/* Custom utility classes */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md font-medium transition-colors 
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 
+    disabled:opacity-50 disabled:pointer-events-none ring-offset-background text-sm h-10 px-4 py-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-foreground text-white hover:bg-primary-foreground/90 dark:bg-primary-foreground dark:text-white dark:hover:bg-primary-foreground/90;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-foreground text-white hover:bg-secondary-foreground/90 dark:bg-secondary-foreground dark:text-white dark:hover:bg-secondary-foreground/90;
+  }
+  
+  .btn-outline {
+    @apply border border-input bg-transparent hover:bg-muted hover:text-foreground dark:text-foreground dark:hover:bg-muted dark:hover:text-foreground;
+  }
+  
+  .btn-ghost {
+    @apply hover:bg-muted hover:text-foreground dark:text-foreground dark:hover:bg-muted dark:hover:text-foreground;
+  }
+  
+  .btn-danger {
+    @apply bg-error-foreground text-white hover:bg-error-foreground/90 dark:bg-error-foreground dark:text-white dark:hover:bg-error-foreground/90;
+  }
+  
+  .input {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm 
+    ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium 
+    placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 
+    focus-visible:ring-primary-foreground focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50
+    dark:text-foreground dark:placeholder:text-muted-foreground;
+  }
+  
+  .card {
+    @apply rounded-lg border border-border bg-background shadow-sm dark:bg-background dark:border-border;
+  }
+
+  .back-to-home {
+    @apply fixed bottom-6 right-6 p-3 rounded-full bg-primary-foreground text-white shadow-lg hover:bg-primary-foreground/90 transition-colors z-50;
+  }
+}
