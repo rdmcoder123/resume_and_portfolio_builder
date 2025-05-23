@@ -33,12 +33,6 @@ export default function About() {
                   <h3 className="font-semibold mb-2">DHATSHINAMOORTHY R</h3>
                   <p className="text-muted-foreground">Tech Lead</p>
                 </div>
-              
-                <div className="card p-6 text-center">
-                  <h3 className="font-semibold mb-2">Selva Jotheha C A</h3>
-                  <p className="text-muted-foreground">DevOps</p>
-                </div>
-              
               <div className="card p-6 text-center">
                 <h3 className="font-semibold mb-2">AKASH T</h3>
                 <p className="text-muted-foreground">Backend Developer</p>
